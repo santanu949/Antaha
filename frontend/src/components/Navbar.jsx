@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useElementRect } from "../hooks/useElementRect";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar({ onActiveRectChange }) {
   const links = ["Services", "Pricing", "About", "Case Studies", "Contact"];
   const [activeIndex, setActiveIndex] = useState(0);
   const activeItemRef = useRef(null);
+  const navigate = useNavigate();
   
   // Custom hook that measures bounding box on resize/mutations
   const activeRect = useElementRect(activeItemRef);
@@ -34,6 +36,14 @@ export default function Navbar({ onActiveRectChange }) {
               onClick={(e) => {
                 e.preventDefault();
                 setActiveIndex(i);
+                if (l === "About") {
+                  const aboutSection = document.getElementById("about");
+                  if (aboutSection) {
+                    aboutSection.scrollIntoView({ behavior: "smooth" });
+                  } else {
+                    navigate("/about");
+                  }
+                }
               }}
               ref={isActive ? activeItemRef : null}
               className={`text-[15px] transition-colors ${
