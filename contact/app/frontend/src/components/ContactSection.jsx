@@ -2,11 +2,6 @@ import React, { useState } from "react";
 import { MessageCircle, Send, Phone, MapPin, ChevronDown, Twitter } from "lucide-react";
 import MountainVistaParallax from "./ui/mountain-vista-bg";
 
-const SERVICES = [
-  ["Website design", "Content creation"],
-  ["UX design", "Strategy & consulting"],
-  ["User research", "Other"],
-];
 
 const COUNTRIES = [
   { code: "US", dial: "+1" },
@@ -25,20 +20,17 @@ export default function ContactSection() {
     message: "",
     country: "US",
   });
-  const [services, setServices] = useState({});
+
 
   const handleChange = (e) => {
     setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
   };
 
-  const toggleService = (s) => {
-    setServices((p) => ({ ...p, [s]: !p[s] }));
-  };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const picked = Object.entries(services).filter(([, v]) => v).map(([k]) => k);
-    alert(`Message sent!\n\nName: ${form.firstName} ${form.lastName}\nEmail: ${form.email}\nServices: ${picked.join(", ") || "None"}`);
+    alert(`Message sent!\n\nName: ${form.firstName} ${form.lastName}\nEmail: ${form.email}`);
   };
 
   const inputClass =
@@ -139,37 +131,9 @@ export default function ContactSection() {
               />
             </div>
 
-            {/* Services */}
-            <div className="mt-6">
-              <p className="text-[13px] font-medium text-gray-700 mb-3">Services</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-5">
-                {SERVICES.flat().map((s) => (
-                  <label key={s} className="svc-row flex items-center gap-2.5 text-[13px] text-gray-700 cursor-pointer select-none">
-                    <span
-                      onClick={(e) => { e.preventDefault(); toggleService(s); }}
-                      className={`relative w-[16px] h-[16px] rounded-[4px] border ${services[s] ? "bg-gray-900 border-gray-900" : "bg-white border-gray-300"} flex items-center justify-center transition-colors duration-150`}
-                    >
-                      {services[s] && (
-                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="20 6 9 17 4 12" />
-                        </svg>
-                      )}
-                    </span>
-                    <input
-                      type="checkbox"
-                      className="hidden"
-                      checked={!!services[s]}
-                      onChange={() => toggleService(s)}
-                    />
-                    <span>{s}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-
             <button
               type="submit"
-              className="send-btn mt-8 w-full h-[42px] rounded-lg bg-gray-900 text-white text-[14px] font-semibold"
+              className="send-btn mt-[172px] w-full h-[42px] rounded-lg bg-gray-900 text-white text-[14px] font-semibold"
             >
               Send message
             </button>
@@ -200,7 +164,7 @@ export default function ContactSection() {
             {/* Call us */}
             <div className="mt-10">
               <h3 className="text-[18px] font-semibold text-gray-900">Call us</h3>
-              <p className="mt-1.5 text-[13px] text-gray-600">Call our team Mon-Fri from 8am to 5pm.</p>
+              <p className="mt-1.5 text-[13px] text-gray-600">Call our team.</p>
               <a href="tel:+15550000000" className="info-link mt-5 flex items-center gap-2.5 text-[14px] font-semibold text-gray-900">
                 <Phone size={16} strokeWidth={2} />
                 <span className="underline underline-offset-4 decoration-1">+1 (555) 000-0000</span>
@@ -210,10 +174,10 @@ export default function ContactSection() {
             {/* Visit us */}
             <div className="mt-10">
               <h3 className="text-[18px] font-semibold text-gray-900">Visit us</h3>
-              <p className="mt-1.5 text-[13px] text-gray-600">Chat to us in person at our Melbourne HQ.</p>
+              <p className="mt-1.5 text-[13px] text-gray-600">Chat to us.</p>
               <a href="#" className="info-link mt-5 flex items-center gap-2.5 text-[14px] font-semibold text-gray-900">
                 <MapPin size={16} strokeWidth={2} />
-                <span className="underline underline-offset-4 decoration-1">100 Smith Street, Collingwood VIC 3066</span>
+                <span className="underline underline-offset-4 decoration-1">Los Santos</span>
               </a>
             </div>
           </div>
