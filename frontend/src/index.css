@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600;700&display=swap");
 
 html, body {
     margin: 0;
@@ -94,3 +95,47 @@ code, .mono {
 /* Floating cards subtle hover */
 .float-card { transition: transform 0.4s cubic-bezier(0.2,0.7,0.2,1), box-shadow 0.4s ease; }
 .float-card:hover { transform: translateY(-4px) scale(1.02); z-index: 100 !important; }
+
+/* Contact-specific styles */
+.display-font {
+  font-family: 'Bricolage Grotesque', 'Inter', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+@keyframes parallax_fg {
+  0% { background-position: 2765px 100%; }
+  100% { background-position: 550px 100%; }
+}
+
+@keyframes parallax_bike {
+  0% { background-position: -300px 100%; }
+  100% { background-position: 2000px 100%; }
+}
+
+/* Footer-specific typography */
+.footer-antaha {
+    font-family: "Geist", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.footer-heading {
+    font-family: "Bricolage Grotesque", "Geist", sans-serif;
+    font-weight: 800;
+    /* Gradient-mask vertical fade: bottom is dark, top fades to light */
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.18) 0%,
+        rgba(0, 0, 0, 0.35) 28%,
+        rgba(0, 0, 0, 0.78) 62%,
+        rgba(0, 0, 0, 1) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.02);
+}
+
+.footer-antaha-word {
+    font-family: "Bricolage Grotesque", "Geist", sans-serif;
+    font-weight: 900;
+}
