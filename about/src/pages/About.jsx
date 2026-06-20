@@ -67,11 +67,14 @@ const Badge = () => {
 
 const About = () => {
   return (
-    <div className="min-h-screen w-full bg-[#f3f3f3]">
-      {/* <Navbar /> */}
+    <div className="w-full bg-[var(--bg)] relative overflow-hidden">
+      <div className="absolute inset-0 bp-lines pointer-events-none" />
+      <div className="absolute inset-0 bp-grid pointer-events-none opacity-50" />
+      <div className="relative z-10">
+        {/* <Navbar /> */}
 
-      <main className="mx-auto max-w-[1400px] px-10 pb-32 pt-10">
-        {/* Hero */}
+        <main className="mx-auto max-w-[1400px] px-10 pb-10 pt-10">
+          {/* Hero */}
         <section className="flex flex-col items-center text-center">
           <Badge />
 
@@ -155,6 +158,7 @@ const About = () => {
           </div>
         </section>
       </main>
+      </div>
     </div>
   );
 };

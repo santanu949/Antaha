@@ -20,6 +20,7 @@ module.exports = {
             babelLoader.include = babelLoader.include ? [babelLoader.include] : [];
           }
           babelLoader.include.push(path.resolve(__dirname, '../about/src'));
+          babelLoader.include.push(path.resolve(__dirname, '../service/app/frontend/src'));
         }
       }
 

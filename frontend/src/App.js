@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing";
 import About from "../../about/src/pages/About";
+import PricingPage from "./components/PricingPage";
 function App() {
   return (
     <div className="App">
@@ -9,6 +10,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/about" element={<About />} />
+          <Route path="/pricing" element={<PricingPage />} />
         </Routes>
       </BrowserRouter>
     </div>

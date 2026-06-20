@@ -21,9 +21,17 @@ export default function Navbar({ onActiveRectChange }) {
   return (
     <header className="relative flex items-center justify-between">
       {/* Logo */}
-      <div className="flex items-center gap-2">
+      <a 
+        href="/"
+        onClick={(e) => {
+          e.preventDefault();
+          navigate("/");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+        className="flex items-center gap-2 cursor-pointer"
+      >
         <span className="text-[26px] font-semibold tracking-tight text-black">Antaha</span>
-      </div>
+      </a>
 
       {/* Center nav */}
       <nav className="absolute left-1/2 -translate-x-1/2 flex items-center gap-9">
@@ -42,6 +50,11 @@ export default function Navbar({ onActiveRectChange }) {
                     aboutSection.scrollIntoView({ behavior: "smooth" });
                   } else {
                     navigate("/about");
+                  }
+                } else if (l === "Services") {
+                  const servicesSection = document.getElementById("services");
+                  if (servicesSection) {
+                    servicesSection.scrollIntoView({ behavior: "smooth" });
                   }
                 }
               }}

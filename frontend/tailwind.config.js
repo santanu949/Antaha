@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
     "../about/src/**/*.{js,jsx,ts,tsx}",
+    "../service/app/frontend/src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {

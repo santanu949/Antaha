@@ -6,13 +6,14 @@ import HeroCenter from "../components/HeroCenter";
 import DesignGuides from "../components/DesignGuides";
 import DesignBoardOverlay from "../components/FigmaSelectionSystem";
 import About from "../../../about/src/pages/About";
+import ServicePage from "../../../service/app/frontend/src/pages/AntahaLanding";
 
 export default function Landing() {
   const [navRect, setNavRect] = useState(null);
 
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden">
-      <div className="relative min-h-screen w-full dotted-bg overflow-hidden">
+      <div id="landing" className="relative min-h-screen w-full dotted-bg overflow-hidden">
         {/* Design board guide lines and handle dots overlay */}
         <DesignGuides />
         
@@ -43,6 +44,11 @@ export default function Landing() {
       {/* About Section */}
       <div id="about">
         <About />
+      </div>
+
+      {/* Services Section */}
+      <div id="services">
+        <ServicePage />
       </div>
     </div>
   );
