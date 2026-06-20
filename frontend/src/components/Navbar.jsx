@@ -56,6 +56,11 @@ export default function Navbar({ onActiveRectChange }) {
                   if (servicesSection) {
                     servicesSection.scrollIntoView({ behavior: "smooth" });
                   }
+                } else if (l === "Pricing") {
+                  const pricingSection = document.getElementById("pricing");
+                  if (pricingSection) {
+                    pricingSection.scrollIntoView({ behavior: "smooth" });
+                  }
                 }
               }}
               ref={isActive ? activeItemRef : null}

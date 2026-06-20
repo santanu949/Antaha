@@ -7,6 +7,7 @@ import DesignGuides from "../components/DesignGuides";
 import DesignBoardOverlay from "../components/FigmaSelectionSystem";
 import About from "../../../about/src/pages/About";
 import ServicePage from "../../../service/app/frontend/src/pages/AntahaLanding";
+import PricingPage from "../components/PricingPage";
 
 export default function Landing() {
   const [navRect, setNavRect] = useState(null);
@@ -49,6 +50,11 @@ export default function Landing() {
       {/* Services Section */}
       <div id="services">
         <ServicePage />
+      </div>
+
+      {/* Pricing Section */}
+      <div id="pricing">
+        <PricingPage />
       </div>
     </div>
   );
