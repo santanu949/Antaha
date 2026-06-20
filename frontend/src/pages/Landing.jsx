@@ -16,20 +16,20 @@ export default function Landing() {
 
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden">
-      <div id="landing" className="relative min-h-screen w-full dotted-bg overflow-hidden">
+      <div id="landing" className="relative min-h-screen w-full premium-grid-bg overflow-hidden">
         {/* Design board guide lines and handle dots overlay */}
         <DesignGuides />
         
         {/* Figma selection overlay */}
         <DesignBoardOverlay navRect={navRect} />
 
-        <div className="relative z-20 mx-auto max-w-[1480px] px-6 pt-7 pb-16">
+        <div className="relative z-20 mx-auto max-w-[1480px] px-6 pt-7 max-md:pt-3.5 pb-16">
           {/* Top bar */}
           <Navbar onActiveRectChange={setNavRect} />
 
           {/* Three-column grid */}
           <div className="mt-6 grid grid-cols-12 gap-6 relative">
-            <div className="col-span-12 md:col-span-2 relative">
+            <div className="col-span-12 md:col-span-2 relative max-md:hidden">
               <LeftSidebar />
             </div>
 
@@ -37,7 +37,7 @@ export default function Landing() {
               <HeroCenter />
             </div>
 
-            <div className="col-span-12 md:col-span-2 relative">
+            <div className="col-span-12 md:col-span-2 relative max-md:hidden">
               <RightSidebar />
             </div>
           </div>
