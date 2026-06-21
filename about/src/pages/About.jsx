@@ -51,7 +51,7 @@ const growthServices = [
 const Badge = () => {
   // Bracketed badge with corner marks
   return (
-    <div className="relative inline-flex items-center justify-center">
+    <div className="relative inline-flex items-center justify-center max-md:scale-[0.93] max-md:origin-center">
       {/* corner brackets */}
       <span className="absolute -left-1 -top-1 h-2 w-2 border-l-2 border-t-2 border-[#FF5A1F]" />
       <span className="absolute -right-1 -top-1 h-2 w-2 border-r-2 border-t-2 border-[#FF5A1F]" />
@@ -79,7 +79,7 @@ const About = () => {
         <section className="flex flex-col items-center text-center">
           <Badge />
 
-          <h1 className="mt-8 max-md:mt-6 font-display text-[62px] max-md:text-[40px] leading-[1.08] tracking-tight">
+          <h1 className="mt-8 max-md:mt-6 font-display text-[62px] max-md:text-[40px] leading-[1.08] tracking-tight max-md:scale-[0.96] max-md:origin-top">
             <div className="whitespace-nowrap max-md:whitespace-normal">
               <span className="text-neutral-900">TRANSFORMING<br className="hidden max-md:block" /></span>
               <span className="text-[#FF5A1F]"> DIGITAL PRESENCE</span>
@@ -93,7 +93,7 @@ const About = () => {
             </div>
           </h1>
 
-          <p className="font-mono-jb mt-10 max-md:mt-6 max-w-[1000px] text-[18px] max-md:text-[15px] leading-[1.8] text-neutral-500">
+          <p className="font-mono-jb mt-10 max-md:mt-6 max-w-[1000px] text-[18px] max-md:text-[15px] leading-[1.8] text-neutral-500 max-md:scale-[0.96] max-md:origin-top">
             We help businesses build a stronger digital presence through
             marketing, branding, websites, SEO, and social media. Our focus is
             simple: measurable results, stronger visibility, and sustainable
@@ -110,7 +110,7 @@ const About = () => {
               label="BUSINESSES SERVED"
               bg="bg-[#FF5A1F]"
               textColor="text-white"
-              width="w-[360px] max-md:w-full"
+              width="w-[360px] max-md:w-[92%]"
               height="h-[300px] max-md:h-[130px]"
               fanCards={businessServices}
               mainIcon={Users}
@@ -122,7 +122,7 @@ const About = () => {
               label="PROJECTS DELIVERED"
               bg="bg-[#C8FF3D]"
               textColor="text-neutral-900"
-              width="w-[360px] max-md:w-full"
+              width="w-[360px] max-md:w-[92%]"
               height="h-[300px] max-md:h-[130px]"
               fanCards={projectsServices}
               mainIcon={Briefcase}
@@ -132,7 +132,7 @@ const About = () => {
               label="CLIENT SATISFACTION"
               bg="bg-neutral-900"
               textColor="text-white"
-              width="w-[360px] max-md:w-full"
+              width="w-[360px] max-md:w-[92%]"
               height="h-[300px] max-md:h-[130px]"
               fanCards={satisfactionServices}
               mainIcon={Star}
@@ -146,7 +146,7 @@ const About = () => {
               label="INDUSTRIES SERVED"
               bg="bg-[#7E4BE0]"
               textColor="text-white"
-              width="w-[360px] max-md:w-full"
+              width="w-[360px] max-md:w-[92%]"
               height="h-[260px] max-md:h-[130px]"
               fanCards={industriesServices}
               mainIcon={Building}
@@ -156,7 +156,7 @@ const About = () => {
               label="AVERAGE GROWTH ACHIEVED"
               bg="bg-[#E26A1F]"
               textColor="text-white"
-              width="w-[360px] max-md:w-full"
+              width="w-[360px] max-md:w-[92%]"
               height="h-[260px] max-md:h-[130px]"
               fanCards={growthServices}
               mainIcon={TrendingUp}
