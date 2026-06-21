@@ -5,7 +5,8 @@ import {
   ShoppingCart, Briefcase, Layout, Cloud, Smartphone,
   Star, LifeBuoy, Clock, Award, MessageCircle,
   HeartPulse, Store, DollarSign, Cpu, GraduationCap,
-  TrendingUp, Users, Target, MousePointerClick, ThumbsUp
+  TrendingUp, Users, Target, MousePointerClick, ThumbsUp,
+  Building
 } from "lucide-react";
 
 const businessServices = [
@@ -73,26 +74,26 @@ const About = () => {
       <div className="relative z-10">
         {/* <Navbar /> */}
 
-        <main className="mx-auto max-w-[1400px] px-10 pb-10 pt-10">
+        <main className="mx-auto max-w-[1400px] px-10 max-md:px-5 pb-10 pt-10">
           {/* Hero */}
         <section className="flex flex-col items-center text-center">
           <Badge />
 
-          <h1 className="mt-8 font-display text-[62px] leading-[1.08] tracking-tight">
-            <div className="whitespace-nowrap">
-              <span className="text-neutral-900">TRANSFORMING </span>
-              <span className="text-[#FF5A1F]">DIGITAL PRESENCE</span>
+          <h1 className="mt-8 max-md:mt-6 font-display text-[62px] max-md:text-[40px] leading-[1.08] tracking-tight">
+            <div className="whitespace-nowrap max-md:whitespace-normal">
+              <span className="text-neutral-900">TRANSFORMING<br className="hidden max-md:block" /></span>
+              <span className="text-[#FF5A1F]"> DIGITAL PRESENCE</span>
             </div>
 
-            <div className="whitespace-nowrap">
+            <div className="whitespace-nowrap max-md:whitespace-normal">
               <span className="text-neutral-900">INTO </span>
               <span className="text-[#FF5A1F]">
-                MEASURABLE BUSINESS GROWTH
+                MEASURABLE<br className="hidden max-md:block" />BUSINESS GROWTH
               </span>
             </div>
           </h1>
 
-          <p className="font-mono-jb mt-10 max-w-[1000px] text-[18px] leading-[1.8] text-neutral-500">
+          <p className="font-mono-jb mt-10 max-md:mt-6 max-w-[1000px] text-[18px] max-md:text-[15px] leading-[1.8] text-neutral-500">
             We help businesses build a stronger digital presence through
             marketing, branding, websites, SEO, and social media. Our focus is
             simple: measurable results, stronger visibility, and sustainable
@@ -101,17 +102,18 @@ const About = () => {
         </section>
 
         {/* Stats Grid */}
-        <section className="mt-20">
+        <section className="mt-20 max-md:mt-12">
           {/* Row 1 */}
-          <div className="flex flex-wrap items-end justify-center gap-8">
+          <div className="flex flex-wrap items-end justify-center gap-8 max-md:flex-col max-md:items-center max-md:gap-6">
             <StatCard
               value="150+"
               label="BUSINESSES SERVED"
               bg="bg-[#FF5A1F]"
               textColor="text-white"
-              width="w-[360px]"
-              height="h-[300px]"
+              width="w-[360px] max-md:w-full"
+              height="h-[300px] max-md:h-[130px]"
               fanCards={businessServices}
+              mainIcon={Users}
               stripes
               glow
             />
@@ -120,40 +122,44 @@ const About = () => {
               label="PROJECTS DELIVERED"
               bg="bg-[#C8FF3D]"
               textColor="text-neutral-900"
-              width="w-[360px]"
-              height="h-[300px]"
+              width="w-[360px] max-md:w-full"
+              height="h-[300px] max-md:h-[130px]"
               fanCards={projectsServices}
+              mainIcon={Briefcase}
             />
             <StatCard
               value="98%"
               label="CLIENT SATISFACTION"
               bg="bg-neutral-900"
               textColor="text-white"
-              width="w-[360px]"
-              height="h-[300px]"
+              width="w-[360px] max-md:w-full"
+              height="h-[300px] max-md:h-[130px]"
               fanCards={satisfactionServices}
+              mainIcon={Star}
             />
           </div>
 
           {/* Row 2 - offset to the right */}
-          <div className="mt-8 flex flex-wrap justify-center gap-8 pl-[392px]">
+          <div className="mt-8 flex flex-wrap justify-center gap-8 pl-[392px] max-md:mt-6 max-md:pl-0 max-md:flex-col max-md:items-center max-md:gap-6">
             <StatCard
               value="25+"
               label="INDUSTRIES SERVED"
               bg="bg-[#7E4BE0]"
               textColor="text-white"
-              width="w-[360px]"
-              height="h-[260px]"
+              width="w-[360px] max-md:w-full"
+              height="h-[260px] max-md:h-[130px]"
               fanCards={industriesServices}
+              mainIcon={Building}
             />
             <StatCard
               value="300%"
               label="AVERAGE GROWTH ACHIEVED"
               bg="bg-[#E26A1F]"
               textColor="text-white"
-              width="w-[360px]"
-              height="h-[260px]"
+              width="w-[360px] max-md:w-full"
+              height="h-[260px] max-md:h-[130px]"
               fanCards={growthServices}
+              mainIcon={TrendingUp}
             />
           </div>
         </section>
