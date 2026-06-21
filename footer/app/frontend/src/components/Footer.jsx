@@ -166,7 +166,7 @@ const ScrollTopButton = () => {
                  border border-black/10
                  shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_22px_-12px_rgba(0,0,0,0.25)]
                  hover:shadow-[0_2px_4px_rgba(0,0,0,0.08),0_16px_30px_-14px_rgba(0,0,0,0.32)]
-                 transition-shadow duration-300"
+                 transition-shadow duration-300 max-md:relative max-md:-top-12"
     >
       <motion.span
         animate={{ y: [0, -3, 0] }}
