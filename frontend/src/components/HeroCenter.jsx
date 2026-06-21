@@ -34,7 +34,7 @@ export default function HeroCenter() {
       {/* Floating card composition */}
       <div className="relative mt-10 max-md:mt-11 w-full max-w-[760px] h-[600px] max-md:h-[200px]">
         <div className="w-full h-full max-md:w-[760px] max-md:h-[600px] max-md:absolute max-md:top-0 max-md:left-1/2 max-md:-translate-x-[52%] max-md:transform max-md:scale-[0.30] sm:max-md:scale-[0.38] max-md:origin-top">
-          <div className="w-full h-full transform scale-[1.055] max-md:scale-[1.118] origin-center">
+          <div className="w-full h-full transform scale-[1.16] max-md:scale-[1.23] origin-center">
             <FloatingCards />
           </div>
         </div>
