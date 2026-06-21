@@ -5,7 +5,7 @@ import "../App.css";
 import {
   ArrowRight, ArrowUpRight, TrendingUp, Hash,
   FileText, Search, Target, Rocket, Sliders,
-  Trophy, ShieldCheck, Sparkles, Check
+  Trophy, ShieldCheck, Sparkles, Check, ChevronRight, MessageSquare
 } from "lucide-react";
 
 const EASE = [0.17, 0.55, 0.55, 1];
@@ -126,16 +126,16 @@ const HeroSidePanels = () => (
 
 /* ---------- Section: Hero ---------- */
 const Hero = () => (
-  <section id="hero" className="relative px-6 lg:px-10 pt-4 pb-16">
+  <section id="hero" className="relative px-6 lg:px-10 pt-4 pb-16 max-md:pb-4">
     <div className="absolute inset-0 bp-grid pointer-events-none" />
     <HeroSidePanels />
 
-    <div className="relative max-w-4xl mx-auto text-center pt-4">
+    <div className="relative max-w-4xl mx-auto text-center max-md:text-left pt-4 max-md:pt-0">
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: EASE }}
-        className="inline-flex items-center font-mono-label text-[11px] tracking-[0.18em] text-[var(--accent)] border border-dashed border-[var(--accent)]/60 rounded-md px-3 py-1.5 mb-8"
+        className="inline-flex items-center font-mono-label text-[11px] tracking-[0.18em] text-[var(--accent)] border border-dashed border-[var(--accent)]/60 rounded-md px-3 py-1.5 mb-8 max-md:scale-[0.5] max-md:origin-top max-md:mb-3 max-md:flex max-md:w-fit max-md:mx-auto"
         data-testid="hero-eyebrow"
       >
         OUR SERVICES
@@ -145,18 +145,22 @@ const Hero = () => (
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}
-        className="font-display text-[44px] sm:text-[64px] lg:text-[88px] leading-[0.95] tracking-tight"
+        className="font-display max-md:text-[22px] text-[44px] sm:text-[64px] lg:text-[88px] leading-[0.95] tracking-tight"
         data-testid="hero-title"
       >
-        <span className="block">STRATEGY. CREATIVITY.</span>
-        <span className="block text-[var(--accent)]">GROWTH. DELIVERED.</span>
+        <span className="block max-md:hidden">STRATEGY. CREATIVITY.</span>
+        <span className="block text-[var(--accent)] max-md:hidden">GROWTH. DELIVERED.</span>
+
+        <span className="hidden max-md:block">STRATEGY.</span>
+        <span className="hidden max-md:block">CREATIVITY.</span>
+        <span className="hidden max-md:block text-[var(--accent)]">GROWTH. DELIVERED.</span>
       </motion.h1>
 
       <motion.p
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: EASE, delay: 0.25 }}
-        className="font-mono-label text-[13px] sm:text-[14px] text-[var(--ink-soft)] max-w-2xl mx-auto mt-7 leading-[1.9]"
+        className="font-mono-label max-md:text-[8.5px] text-[13px] sm:text-[14px] text-[var(--ink-soft)] max-w-2xl mx-auto mt-7 max-md:mt-5 max-md:mx-0 max-md:text-left leading-[1.9] max-md:leading-[1.6]"
         data-testid="hero-subtitle"
       >
         We help ambitious businesses build a strong digital presence,
@@ -168,15 +172,15 @@ const Hero = () => (
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: EASE, delay: 0.4 }}
-        className="mt-10 flex items-center justify-center gap-4 flex-wrap"
+        className="mt-10 max-md:mt-4 flex items-center justify-center max-md:justify-start gap-4 max-md:gap-2 flex-wrap max-md:flex-nowrap max-md:w-full"
       >
-        <a href="#contact" className="pill-cta pill-primary" data-testid="cta-book-consultation">
+        <a href="#contact" className="pill-cta pill-primary max-md:flex-1 max-md:h-[42px] max-md:text-[10px] max-md:px-3 max-md:rounded-lg max-md:flex max-md:justify-center max-md:items-center max-md:gap-1.5 max-md:whitespace-nowrap" data-testid="cta-book-consultation">
           Book Free Consultation
-          <span className="h-7 w-7 rounded-full bg-white/15 grid place-items-center">
-            <ArrowRight className="h-3.5 w-3.5" />
+          <span className="h-7 w-7 max-md:h-5 max-md:w-5 rounded-full bg-white/15 grid place-items-center shrink-0">
+            <ArrowRight className="h-3.5 w-3.5 max-md:h-2.5 max-md:w-2.5" />
           </span>
         </a>
-        <a href="#case-studies" className="pill-cta pill-ghost" data-testid="cta-case-studies">
+        <a href="#case-studies" className="pill-cta pill-ghost max-md:flex-1 max-md:h-[42px] max-md:text-[10px] max-md:rounded-lg max-md:bg-white max-md:border max-md:border-neutral-200 max-md:shadow-sm max-md:text-neutral-900 max-md:flex max-md:justify-center max-md:items-center max-md:whitespace-nowrap max-md:px-3" data-testid="cta-case-studies">
           View Case Studies
         </a>
       </motion.div>
@@ -339,39 +343,76 @@ const ServiceCard = ({ service, index }) => {
     e.currentTarget.style.setProperty("--mouse-y", `${e.clientY - r.top}px`);
   };
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.6, ease: EASE, delay: (index % 4) * 0.06 }}
-      onMouseMove={handleMove}
-      data-testid={`service-card-${service.id}`}
-      className="spot-card rounded-2xl p-5 flex flex-col gap-4 h-full min-h-[380px]"
-    >
-      <h3 className="font-display text-[22px] leading-tight">{service.title}</h3>
-      {service.visual}
-      <p className="text-[14px] text-[var(--ink-soft)] leading-relaxed">{service.desc}</p>
-      <a
-        href="#contact"
-        className="inline-flex items-center gap-1.5 font-semibold text-[14px] mt-auto"
-        style={{ color: service.tone }}
-        data-testid={`service-explore-${service.id}`}
+    <>
+      {/* Desktop Card */}
+      <motion.article
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.6, ease: EASE, delay: (index % 4) * 0.06 }}
+        onMouseMove={handleMove}
+        data-testid={`service-card-${service.id}`}
+        className="spot-card rounded-2xl p-5 flex flex-col gap-4 h-full min-h-[380px] max-md:hidden"
       >
-        Explore <ArrowRight className="h-3.5 w-3.5" />
-      </a>
-    </motion.article>
+        <h3 className="font-display text-[22px] leading-tight">{service.title}</h3>
+        {service.visual}
+        <p className="text-[14px] text-[var(--ink-soft)] leading-relaxed">{service.desc}</p>
+        <a
+          href="#contact"
+          className="inline-flex items-center gap-1.5 font-semibold text-[14px] mt-auto"
+          style={{ color: service.tone }}
+          data-testid={`service-explore-${service.id}`}
+        >
+          Explore <ArrowRight className="h-3.5 w-3.5" />
+        </a>
+      </motion.article>
+
+      {/* Mobile Card */}
+      <motion.article
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5, ease: EASE }}
+        whileTap={{ scale: 0.98 }}
+        className={`hidden ${service.id === "content" || service.id === "growth" ? "max-md:!hidden" : "max-md:flex"} bg-white rounded-2xl p-2.5 flex-row items-center gap-3 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-neutral-100`}
+      >
+        <div className="w-[80px] h-[50px] shrink-0 relative bg-neutral-50 rounded-[10px] overflow-hidden border border-neutral-100">
+           <div className="absolute top-0 left-0 w-[200px] origin-top-left scale-[0.4] pointer-events-none">
+             {service.visual}
+           </div>
+        </div>
+        <div className="flex-1 min-w-0 flex flex-col justify-center">
+           <h3 className="text-[10px] font-bold text-neutral-900 leading-tight mb-1">{service.title}</h3>
+           <p className="text-[8px] text-neutral-500 leading-snug line-clamp-2 pr-1">{service.desc}</p>
+        </div>
+        <div className="w-6 h-6 rounded-full border border-neutral-200 flex items-center justify-center shrink-0">
+           <ChevronRight className="h-3 w-3 text-neutral-400" />
+        </div>
+      </motion.article>
+    </>
   );
 };
 
 const ServicesGrid = () => (
-  <section id="services" className="relative px-6 lg:px-10 pb-24">
+  <section id="services" className="relative px-6 lg:px-10 pb-24 max-md:px-4 max-md:pb-10">
     <div className="max-w-6xl mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      {/* Mobile-only header */}
+      <div className="hidden max-md:flex items-center justify-between mb-4 mt-2">
+        <h2 className="text-[10px] font-bold tracking-widest uppercase text-neutral-800">Our Services</h2>
+        <div className="flex items-center gap-1.5 text-[#FF5A1F] text-[9.5px] font-semibold">
+           <Sparkles className="h-3 w-3" />
+           5 Services
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 max-md:gap-3">
         {SERVICES.slice(0, 4).map((s, i) => <ServiceCard key={s.id} service={s} index={i} />)}
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5 max-md:mt-3 max-md:gap-3">
         {SERVICES.slice(4).map((s, i) => <ServiceCard key={s.id} service={s} index={i} />)}
       </div>
+
+
     </div>
   </section>
 );
