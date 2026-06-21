@@ -13,7 +13,6 @@ const layersData = [
 ];
 
 const MountainVistaParallax = ({ title = '', subtitle = '' }) => {
-  // Generate dynamic CSS for each layer
   const dynamicStyles = useMemo(() => {
     return layersData
       .map(layer => {
@@ -27,6 +26,13 @@ const MountainVistaParallax = ({ title = '', subtitle = '' }) => {
             ${layer.animation ? `animation-name: ${layer.animation};` : ''}
             ${layer.bottom ? `bottom: ${layer.bottom};` : ''}
             ${layer.noRepeat ? 'background-repeat: no-repeat;' : ''}
+          }
+
+          @media (max-width: 768px) {
+            .${layer.className} {
+              background-size: auto calc(${layer.size} * 0.30);
+              ${layer.bottom ? `bottom: calc(${layer.bottom} * 0.30);` : ''}
+            }
           }
         `;
       })
