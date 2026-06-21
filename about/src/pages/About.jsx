@@ -51,7 +51,7 @@ const growthServices = [
 const Badge = () => {
   // Bracketed badge with corner marks
   return (
-    <div className="relative inline-flex items-center justify-center max-md:scale-[0.86] max-md:origin-center">
+    <div className="relative inline-flex items-center justify-center max-md:scale-[0.51] max-md:origin-center">
       {/* corner brackets */}
       <span className="absolute -left-1 -top-1 h-2 w-2 border-l-2 border-t-2 border-[#FF5A1F]" />
       <span className="absolute -right-1 -top-1 h-2 w-2 border-r-2 border-t-2 border-[#FF5A1F]" />
@@ -79,39 +79,66 @@ const About = () => {
         <section className="flex flex-col items-center text-center">
           <Badge />
 
-          <h1 className="mt-8 max-md:mt-6 font-display text-[62px] max-md:text-[40px] leading-[1.08] tracking-tight max-md:scale-[0.92] max-md:origin-top">
-            <div className="whitespace-nowrap max-md:whitespace-normal">
-              <span className="text-neutral-900">TRANSFORMING<br className="hidden max-md:block" /></span>
-              <span className="text-[#FF5A1F]"> DIGITAL PRESENCE</span>
+          <h1 className="mt-8 max-md:mt-6 font-display text-[62px] max-md:text-[40px] leading-[1.08] tracking-tight max-md:scale-[0.54] max-md:origin-top">
+            {/* Desktop Layout */}
+            <div className="whitespace-nowrap max-md:hidden">
+              <span className="text-neutral-900">TRANSFORMING </span>
+              <span className="text-[#FF5A1F]">DIGITAL PRESENCE</span>
             </div>
 
-            <div className="whitespace-nowrap max-md:whitespace-normal">
+            <div className="whitespace-nowrap mt-2 max-md:hidden">
               <span className="text-neutral-900">INTO </span>
               <span className="text-[#FF5A1F]">
-                MEASURABLE<br className="hidden max-md:block" />BUSINESS GROWTH
+                MEASURABLE BUSINESS GROWTH
               </span>
+            </div>
+
+            {/* Mobile Layout */}
+            <div className="hidden max-md:block whitespace-nowrap">
+              <div>
+                <span className="text-neutral-900">TRANSFORMING </span>
+                <span className="text-[#FF5A1F]">DIGITAL</span>
+              </div>
+              <div>
+                <span className="text-[#FF5A1F]">PRESENCE </span>
+                <span className="text-neutral-900">INTO </span>
+                <span className="text-[#FF5A1F]">MEASURABLE</span>
+              </div>
+              <div>
+                <span className="text-[#FF5A1F]">BUSINESS GROWTH</span>
+              </div>
             </div>
           </h1>
 
-          <p className="font-mono-jb mt-10 max-md:mt-6 max-w-[1000px] text-[18px] max-md:text-[15px] leading-[1.8] text-neutral-500 max-md:scale-[0.92] max-md:origin-top">
+          {/* Desktop Paragraph */}
+          <p className="font-mono-jb mt-10 max-w-[1000px] text-[18px] leading-[1.8] text-neutral-500 max-md:hidden">
             We help businesses build a stronger digital presence through
             marketing, branding, websites, SEO, and social media. Our focus is
             simple: measurable results, stronger visibility, and sustainable
             growth.
           </p>
+
+          {/* Mobile Paragraph */}
+          <div className="hidden max-md:block font-mono-jb -mt-8 text-[15px] leading-[1.8] text-neutral-500 scale-[0.65] origin-top whitespace-nowrap">
+            <div>We help businesses build a stronger digital presence</div>
+            <div>through marketing, branding, websites, SEO,</div>
+            <div>and social media.</div>
+            <div className="mt-[6px]">Our focus is simple: measurable results, stronger</div>
+            <div>visibility, and sustainable growth.</div>
+          </div>
         </section>
 
         {/* Stats Grid */}
-        <section className="mt-20 max-md:mt-12">
+        <section className="mt-20 max-md:-mt-8">
           {/* Row 1 */}
-          <div className="flex flex-wrap items-end justify-center gap-8 max-md:flex-col max-md:items-center max-md:gap-6">
+          <div className="flex flex-wrap items-end justify-center gap-8 max-md:flex-col max-md:items-center max-md:gap-3">
             <StatCard
               value="150+"
               label="BUSINESSES SERVED"
               bg="bg-[#FF5A1F]"
               textColor="text-white"
               width="w-[360px] max-md:w-[86%]"
-              height="h-[300px] max-md:h-[130px]"
+              height="h-[300px] max-md:h-[75px]"
               fanCards={businessServices}
               mainIcon={Users}
               stripes
@@ -123,7 +150,7 @@ const About = () => {
               bg="bg-[#C8FF3D]"
               textColor="text-neutral-900"
               width="w-[360px] max-md:w-[86%]"
-              height="h-[300px] max-md:h-[130px]"
+              height="h-[300px] max-md:h-[75px]"
               fanCards={projectsServices}
               mainIcon={Briefcase}
             />
@@ -133,21 +160,21 @@ const About = () => {
               bg="bg-neutral-900"
               textColor="text-white"
               width="w-[360px] max-md:w-[86%]"
-              height="h-[300px] max-md:h-[130px]"
+              height="h-[300px] max-md:h-[75px]"
               fanCards={satisfactionServices}
               mainIcon={Star}
             />
           </div>
 
           {/* Row 2 - offset to the right */}
-          <div className="mt-8 flex flex-wrap justify-center gap-8 pl-[392px] max-md:mt-6 max-md:pl-0 max-md:flex-col max-md:items-center max-md:gap-6">
+          <div className="mt-8 flex flex-wrap justify-center gap-8 pl-[392px] max-md:mt-3 max-md:pl-0 max-md:flex-col max-md:items-center max-md:gap-3">
             <StatCard
               value="25+"
               label="INDUSTRIES SERVED"
               bg="bg-[#7E4BE0]"
               textColor="text-white"
               width="w-[360px] max-md:w-[86%]"
-              height="h-[260px] max-md:h-[130px]"
+              height="h-[260px] max-md:h-[75px]"
               fanCards={industriesServices}
               mainIcon={Building}
             />
@@ -157,7 +184,7 @@ const About = () => {
               bg="bg-[#E26A1F]"
               textColor="text-white"
               width="w-[360px] max-md:w-[86%]"
-              height="h-[260px] max-md:h-[130px]"
+              height="h-[260px] max-md:h-[75px]"
               fanCards={growthServices}
               mainIcon={TrendingUp}
             />

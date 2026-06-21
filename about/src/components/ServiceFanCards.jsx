@@ -18,7 +18,7 @@ const ServiceFanCards = ({ cards = [] }) => {
   
   return (
     <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex justify-center">
-      <div className="relative h-0 w-full">
+      <div className="relative h-0 w-full max-md:scale-[0.6] max-md:origin-bottom">
         {cards.map((card, i) => {
           const { Icon, label } = card;
           // default to last layout if more than 5 cards

@@ -56,13 +56,13 @@ const StatCard = ({
 
           <div className="flex flex-col items-center max-md:items-start text-center max-md:text-left">
             <div
-              className={`font-display text-[100px] max-md:text-[52px] max-md:tracking-[-0.02em] leading-none ${textColor}`}
+              className={`font-display text-[100px] max-md:text-[31px] max-md:tracking-[-0.02em] leading-none ${textColor}`}
             >
               {value}
             </div>
 
             <div
-              className={`mt-3 max-md:mt-0 text-[14px] max-md:text-[11px] font-extrabold tracking-[0.06em] max-md:tracking-[0.04em] text-center max-md:text-left ${textColor}`}
+              className={`mt-3 max-md:mt-0 text-[14px] max-md:text-[7px] font-extrabold tracking-[0.06em] max-md:tracking-[0.04em] text-center max-md:text-left ${textColor}`}
             >
               {label}
             </div>
