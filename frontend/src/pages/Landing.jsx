@@ -7,7 +7,7 @@ import DesignGuides from "../components/DesignGuides";
 import DesignBoardOverlay from "../components/FigmaSelectionSystem";
 import About from "../../../about/src/pages/About";
 import ServicePage from "../../../service/app/frontend/src/pages/AntahaLanding";
-import PricingPage from "../components/PricingPage";
+import PricingPage from "../../../pricing/app/frontend/src/components/PricingPage";
 import ContactSection from "../../../contact/app/frontend/src/components/ContactSection";
 import Footer from "../../../footer/app/frontend/src/components/Footer";
 

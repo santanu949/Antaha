@@ -1,18 +1,6 @@
 import { motion } from "framer-motion";
 import React, { useEffect, useRef } from "react";
 
-
-
-/**
- * AnimatedGradientBackground
- *
- * This component renders a customizable animated radial gradient background with a subtle breathing effect.
- * It uses `framer-motion` for an entrance animation and raw CSS gradients for the dynamic background.
- *
- *
- * @param {AnimatedGradientBackgroundProps} props - Props for configuring the gradient animation.
- * @returns JSX.Element
- */
 const AnimatedGradientBackground = ({
    startingGap = 125,
    Breathing = false,
@@ -33,8 +21,6 @@ const AnimatedGradientBackground = ({
    containerClassName = "",
 }) => {
 
-
-
    // Validation: Ensure gradientStops and gradientColors lengths match
    if (gradientColors.length !== gradientStops.length) {
       throw new Error(
@@ -47,7 +33,7 @@ const AnimatedGradientBackground = ({
    const containerRef = useRef(null);
 
    useEffect(() => {
-      let animationFrame: number;
+      let animationFrame;
       let width = startingGap;
       let directionWidth = 1;
 

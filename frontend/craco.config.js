@@ -23,6 +23,7 @@ module.exports = {
           babelLoader.include.push(path.resolve(__dirname, '../service/app/frontend/src'));
           babelLoader.include.push(path.resolve(__dirname, '../contact/app/frontend/src'));
           babelLoader.include.push(path.resolve(__dirname, '../footer/app/frontend/src'));
+          babelLoader.include.push(path.resolve(__dirname, '../pricing/app/frontend/src'));
         }
       }
 

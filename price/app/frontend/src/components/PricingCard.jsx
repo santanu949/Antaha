@@ -33,8 +33,8 @@ export default function PricingCard({ plan, theme, isCenter }) {
     const borderRing = theme.key === "gbp" ? "ring-2 ring-[#FCC419]" : "";
 
     return (
-      <div className="relative w-full max-w-[360px] mx-auto -mt-2">
-        <div className={`relative rounded-[28px] ${borderRing} p-7 pb-8 shadow-[0_18px_50px_-12px_rgba(0,0,0,0.35)] text-white`} style={{ backgroundColor: darkBg, minHeight: 680 }}>
+      <div className="relative w-full max-w-[360px] max-md:max-w-none mx-auto -mt-2 max-md:mt-0">
+        <div className={`relative rounded-[28px] ${borderRing} p-7 pb-8 max-md:p-5 max-md:pb-6 min-h-[680px] max-md:min-h-0 shadow-[0_18px_50px_-12px_rgba(0,0,0,0.35)] text-white`} style={{ backgroundColor: darkBg }}>
           {/* Most Popular badge */}
           <div
             className="absolute top-0 right-0 rounded-tr-[28px] rounded-bl-[22px] px-5 py-2 text-[13px] font-semibold"
@@ -44,11 +44,11 @@ export default function PricingCard({ plan, theme, isCenter }) {
           </div>
 
           <div className="text-[13px] font-medium opacity-90 mb-5">{plan.tier}</div>
-          <h3 className="text-[34px] font-semibold leading-none mb-3">{plan.name}</h3>
-          <p className="text-[14px] opacity-80 mb-7">{plan.desc}</p>
+          <h3 className="text-[34px] max-md:text-[28px] font-semibold leading-none mb-3">{plan.name}</h3>
+          <p className="text-[14px] max-md:text-[13px] opacity-80 mb-7 max-md:mb-5">{plan.desc}</p>
 
           <div className="flex items-baseline mb-3">
-            <span className="text-[52px] font-bold tracking-tight leading-none" style={{ color: priceColor }}>
+            <span className="text-[52px] max-md:text-[42px] font-bold tracking-tight leading-none" style={{ color: priceColor }}>
               {plan.price}
             </span>
             {plan.priceSuffix && (
@@ -61,9 +61,9 @@ export default function PricingCard({ plan, theme, isCenter }) {
 
           <div className="border-t border-dashed border-white/20 mb-5" />
 
-          <ul className="space-y-3 mb-8">
+          <ul className="space-y-3 mb-8 max-md:space-y-0 max-md:grid max-md:grid-cols-2 max-md:gap-y-3 max-md:gap-x-2">
             {plan.features.map((f, i) => (
-              <li key={i} className="flex items-start gap-3 text-[14px]">
+              <li key={i} className="flex items-start gap-3 text-[14px] max-md:text-[11.5px] max-md:gap-1.5 max-md:leading-snug">
                 {f.ok ? <CheckDot /> : <CrossDot dark />}
                 <span className={f.ok ? "opacity-95" : "opacity-50"}>{f.t}</span>
               </li>
@@ -87,10 +87,10 @@ export default function PricingCard({ plan, theme, isCenter }) {
   const buttonText = theme.sideCardButtonText;
 
   return (
-    <div className="w-full max-w-[360px] mx-auto">
+    <div className="w-full max-w-[360px] max-md:max-w-none mx-auto">
       <div
-        className="relative rounded-[28px] p-7 pb-8 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.15)]"
-        style={{ backgroundColor: sideBg, minHeight: 640 }}
+        className="relative rounded-[28px] p-7 pb-8 max-md:p-5 max-md:pb-6 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.15)] min-h-[640px] max-md:min-h-0"
+        style={{ backgroundColor: sideBg }}
       >
         {/* Tier label + dot */}
         <div className="flex items-center justify-between mb-5">
@@ -101,13 +101,13 @@ export default function PricingCard({ plan, theme, isCenter }) {
           />
         </div>
 
-        <h3 className="text-[34px] font-semibold leading-none mb-3 text-[#0F0F10]">
+        <h3 className="text-[34px] max-md:text-[28px] font-semibold leading-none mb-3 text-[#0F0F10]">
           {plan.name}
         </h3>
-        <p className="text-[14px] text-gray-600 mb-7">{plan.desc}</p>
+        <p className="text-[14px] max-md:text-[13px] text-gray-600 mb-7 max-md:mb-5">{plan.desc}</p>
 
         <div className="flex items-baseline mb-3">
-          <span className="text-[52px] font-bold tracking-tight leading-none text-[#0F0F10]">
+          <span className="text-[52px] max-md:text-[42px] font-bold tracking-tight leading-none text-[#0F0F10]">
             {plan.price}
           </span>
           {plan.priceSuffix && (
@@ -120,9 +120,9 @@ export default function PricingCard({ plan, theme, isCenter }) {
 
         <div className="border-t border-dashed border-gray-300 mb-5" />
 
-        <ul className="space-y-3 mb-8">
+        <ul className="space-y-3 mb-8 max-md:space-y-0 max-md:grid max-md:grid-cols-2 max-md:gap-y-3 max-md:gap-x-2">
           {plan.features.map((f, i) => (
-            <li key={i} className="flex items-start gap-3 text-[14px]">
+            <li key={i} className="flex items-start gap-3 text-[14px] max-md:text-[11.5px] max-md:gap-1.5 max-md:leading-snug">
               {f.ok ? <CheckDot /> : <CrossDot />}
               <span className={f.ok ? "text-gray-800" : "text-gray-400"}>
                 {f.t}

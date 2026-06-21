@@ -6,6 +6,7 @@ module.exports = {
     "../service/app/frontend/src/**/*.{js,jsx,ts,tsx}",
     "../contact/app/frontend/src/**/*.{js,jsx,ts,tsx}",
     "../footer/app/frontend/src/**/*.{js,jsx,ts,tsx}",
+    "../pricing/app/frontend/src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
