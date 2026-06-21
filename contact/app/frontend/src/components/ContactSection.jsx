@@ -262,7 +262,7 @@ export default function ContactSection() {
 
             {/* Mobile Visit Card */}
             <a href="#" className="bg-white rounded-2xl shadow-sm border border-gray-100 p-2.5 flex items-center justify-end">
-              <div className="text-right flex flex-col items-end mr-16">
+              <div className="text-right flex flex-col items-end mr-24">
                 <h3 className="text-[9px] font-semibold text-gray-900 leading-snug">Visit us</h3>
                 <p className="text-[7px] text-gray-500 mt-0.5 mb-1">Chat to us in person.</p>
                 <div className="flex items-center justify-end gap-1 text-[7px] font-medium text-gray-900">
