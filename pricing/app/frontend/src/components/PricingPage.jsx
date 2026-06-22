@@ -27,7 +27,7 @@ export default function PricingPage() {
         </div>
 
         {/* Header + toggle */}
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-2 md:gap-6 mb-2 md:mb-10">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-2 md:gap-6 mb-5 md:mb-10">
           <div className="max-w-[500px]">
             <h1
               key={theme.key + "-title"}
@@ -45,7 +45,7 @@ export default function PricingPage() {
         {/* Pricing cards */}
         <div
           key={theme.key}
-          className="grid grid-cols-1 md:grid-cols-3 gap-1.5 md:gap-4 lg:gap-5 items-start animate-[fadeUp_350ms_ease-out]"
+          className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-4 lg:gap-5 items-start animate-[fadeUp_350ms_ease-out]"
         >
           {theme.plans.map((plan, idx) => (
             <PricingCard

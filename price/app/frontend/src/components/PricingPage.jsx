@@ -27,7 +27,7 @@ export default function PricingPage() {
         </div>
 
         {/* Header + toggle */}
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-14 max-md:mb-8">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-14 max-md:mb-6">
           <div className="max-w-2xl">
             <h1
               key={theme.key + "-title"}
