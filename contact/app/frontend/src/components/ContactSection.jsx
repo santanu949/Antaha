@@ -17,20 +17,49 @@ export default function ContactSection() {
     lastName: "",
     email: "",
     phone: "",
-    message: "",
     country: "US",
   });
-
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleChange = (e) => {
     setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
   };
 
-
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(`Message sent!\n\nName: ${form.firstName} ${form.lastName}\nEmail: ${form.email}`);
+    if (!form.firstName || !form.email || !form.message) {
+      alert("Please fill in First Name, Email, and Message.");
+      return;
+    }
+    
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+    
+    try {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbwqBnbyfOTJwYjuvXXNL1jinQ6uaAfBo_yfEQjdsQX1Yu0K3etgkYgvVIZZYCRcqHtbpQ/exec", {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(form),
+      });
+      
+      const result = await response.json();
+      if (result.status === "success") {
+        setSubmitStatus("success");
+        setForm({ firstName: "", lastName: "", email: "", phone: "", message: "", country: "US" });
+      } else {
+        setSubmitStatus("error");
+        console.error("Form submission error:", result.message);
+      }
+    } catch (error) {
+      setSubmitStatus("error");
+      console.error("Network error:", error);
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus(null), 5000);
+    }
   };
 
   const inputClass =
@@ -154,12 +183,24 @@ export default function ContactSection() {
               </div>
             </div>
 
+            {submitStatus === "success" && (
+              <div className="mt-4 max-md:mt-2 p-3 max-md:p-2 bg-green-50 text-green-700 text-[13px] max-md:text-[11px] rounded-lg border border-green-200">
+                Message sent successfully! We'll get back to you soon.
+              </div>
+            )}
+            {submitStatus === "error" && (
+              <div className="mt-4 max-md:mt-2 p-3 max-md:p-2 bg-red-50 text-red-700 text-[13px] max-md:text-[11px] rounded-lg border border-red-200">
+                Something went wrong. Please try again.
+              </div>
+            )}
+
             <button
               type="submit"
-              className="send-btn md:mt-[172px] w-full md:h-[42px] md:rounded-lg bg-gray-900 text-white text-[14px] font-semibold max-md:mt-3 max-md:h-[35px] max-md:rounded-xl max-md:flex max-md:items-center max-md:justify-center max-md:gap-2"
+              disabled={isSubmitting}
+              className="send-btn md:mt-[172px] w-full md:h-[42px] md:rounded-lg bg-gray-900 text-white text-[14px] font-semibold max-md:mt-3 max-md:h-[35px] max-md:rounded-xl max-md:flex max-md:items-center max-md:justify-center max-md:gap-2 disabled:opacity-70 transition-opacity"
             >
               <Send size={18} className="max-md:block md:hidden" />
-              <span>Send message</span>
+              <span>{isSubmitting ? "Sending..." : "Send message"}</span>
             </button>
           </form>
 
