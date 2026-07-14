@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600;700&display=swap");
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #fafafa;
+    color: #0a0a0a;
+}
+
+code, .mono {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.dotted-bg {
+    background-image: radial-gradient(circle, #d4d4d4 0.8px, transparent 0.8px);
+    background-size: 22px 22px;
+    background-position: 0 0;
+}
+
+.premium-grid-bg {
+    background-color: #fafafa;
+    background-image: 
+        linear-gradient(to bottom, transparent 60%, #fafafa 100%),
+        url("data:image/svg+xml,%3Csvg width='56' height='56' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='27.5' width='56' height='1' fill='rgba(0,0,0,0.04)' /%3E%3Crect x='27.5' y='0' width='1' height='56' fill='rgba(0,0,0,0.04)' /%3E%3Ccircle cx='28' cy='28' r='1.5' fill='rgba(0,0,0,0.15)' /%3E%3C/svg%3E");
+    background-size: 100% 100%, 56px 56px;
+    background-position: center top, center top;
+}
+
+.design-guide {
+    position: absolute;
+    background: #3b82f6;
+    opacity: 0.9;
+}
+
+.design-guide-h { height: 1px; width: 100%; }
+.design-guide-v { width: 1px; height: 100%; }
+
+.handle-dot {
+    width: 7px;
+    height: 7px;
+    background: #ffffff;
+    border: 1.5px solid #3b82f6;
+    border-radius: 1px;
+    position: absolute;
+    z-index: 5;
+}
+
+.section-card {
+    background: #ffffff;
+    border: 1px solid #ececec;
+    border-radius: 14px;
+    position: relative;
+}
+
+.label-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: #9ca3af;
+    text-transform: uppercase;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+@layer base {
+  :root {
+        --background: 0 0% 100%;
+        --foreground: 0 0% 3.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 3.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 3.9%;
+        --primary: 217 91% 60%;
+        --primary-foreground: 0 0% 98%;
+        --secondary: 0 0% 96.1%;
+        --secondary-foreground: 0 0% 9%;
+        --muted: 0 0% 96.1%;
+        --muted-foreground: 0 0% 45.1%;
+        --accent: 0 0% 96.1%;
+        --accent-foreground: 0 0% 9%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 89.8%;
+        --input: 0 0% 89.8%;
+        --ring: 217 91% 60%;
+        --radius: 0.5rem;
+    }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground; }
+}
+
+/* Floating cards subtle hover */
+.float-card { transition: transform 0.4s cubic-bezier(0.2,0.7,0.2,1), box-shadow 0.4s ease; }
+.float-card:hover { transform: translateY(-4px) scale(1.02); z-index: 100 !important; }
+
+/* Contact-specific styles */
+.display-font {
+  font-family: 'Bricolage Grotesque', 'Inter', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+@keyframes parallax_fg {
+  0% { background-position: 2765px 100%; }
+  100% { background-position: 550px 100%; }
+}
+
+@keyframes parallax_bike {
+  0% { background-position: -300px 100%; }
+  100% { background-position: 2000px 100%; }
+}
+
+/* Footer-specific typography */
+.footer-antaha {
+    font-family: "Geist", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.footer-heading {
+    font-family: "Bricolage Grotesque", "Geist", sans-serif;
+    font-weight: 800;
+    /* Gradient-mask vertical fade: bottom is dark, top fades to light */
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.18) 0%,
+        rgba(0, 0, 0, 0.35) 28%,
+        rgba(0, 0, 0, 0.78) 62%,
+        rgba(0, 0, 0, 1) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.02);
+}
+
+.footer-antaha-word {
+    font-family: "Bricolage Grotesque", "Geist", sans-serif;
+    font-weight: 900;
+}
